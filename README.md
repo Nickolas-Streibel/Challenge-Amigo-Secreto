@@ -14,8 +14,6 @@
 * [Tecnologias utilizadas](#tecnologias-utilizadas)
 * [Pessoas Desenvolvedoras do Projeto](#Autores)
 
-* [Conclusão](#conclusão)
-
 # Descrição-do-Projeto
 
   Projeto desenvolvido como forma de estudo em lógica de programação. A estrutura de ensino foi proposta em forma de challenges no programa ONE - Oracle Next Education - em parceria com a Alura.
