@@ -3,6 +3,7 @@
 /* Adicionar nomes a uma lista e sortear esses nomes para os usuarios, retirando os nomes sorteados da lista */
 
 let lista_de_nomes = [];
+let conta_nomes = 0;
 
 function adicionar_nomes_lista(){
     let nomes = document.querySelector('input').value;
@@ -15,14 +16,15 @@ function adicionar_nomes_lista(){
         limpar_Campo();
     }else {
         lista_de_nomes.push(nomes);
-        percorrer_array()
+        conta_nomes++;
+        percorrer_array();
         console.log(lista_de_nomes);
-        limpar_Campo();
+        limpar_Campo('amigo');
     }
 }
 
-function limpar_Campo(){
-    nomes = document.querySelector('input');
+function limpar_Campo(param){
+    nomes = document.getElementById(param);
     nomes.value = ''; 
 }
 
@@ -50,24 +52,44 @@ function sortear_amigo(){
     }
 }
 */
-function sortear_amigo() {
-    if (lista_de_nomes.length > 0) {
-        if (lista_de_nomes.length === 1) {
-            // Se houver apenas um nome restante
-            let amigo_secreto = lista_de_nomes[0];
-            resultado('resultado', `O seu amigo secreto é ${amigo_secreto}`);
-            lista_de_nomes.splice(0, 1);
-            alert('Todos os amigos já foram sorteados!');
-        } else {
-            // Se houver mais de um nome na lista
-            let sorteio = Math.floor(Math.random() * lista_de_nomes.length);
-            let amigo_secreto = lista_de_nomes[sorteio];
-            resultado('resultado', `O seu amigo secreto é ${amigo_secreto}`);
-            lista_de_nomes.splice(sorteio, 1);
+
+function sortear_amigo(){
+    if ((conta_nomes % 2) != 0 )
+    {
+        alert('Para efetuar o sorteio é necessario ter um numero par de amigos!');
+    }
+    else
+    {
+        if (lista_de_nomes.length > 0)
+        {
+            document.getElementById('botao_sorteio').style.visibility = "hidden";
+            if (lista_de_nomes.length == 1) {
+                // Se houver apenas um nome restante
+                let amigo_secreto = lista_de_nomes[0];
+                resultado('resultado', `O seu amigo secreto é ${amigo_secreto}`);
+                setTimeout( () => {
+                    resultado('resultado', 'Fim do Sorteio: Todos os amigos já foram sorteados!');
+                }, 5000);
+                lista_de_nomes.splice(0, 1);
+            } 
+            else {
+                // Se houver mais de um nome na lista
+                let sorteio = Math.floor(Math.random() * lista_de_nomes.length);
+                let amigo_secreto = lista_de_nomes[sorteio];
+                resultado('resultado', `O seu amigo secreto é ${amigo_secreto}`);
+                setTimeout( () => {
+                    resultado('resultado', 'Chame o proximo amigo para sortear!')
+                    document.getElementById('botao_sorteio').style.visibility = "visible";
+                }, 5000);
+                lista_de_nomes.splice(sorteio, 1);
+            }
+            console.log(lista_de_nomes);
+
         }
-        console.log(lista_de_nomes);
-    } else {
-        alert('Insira os nomes dos seus amigos antes de sortear!');
+        else
+        {
+            alert('Insira os nomes dos seus amigos antes de sortear!');
+        }
     }
 }
 
