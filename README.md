@@ -39,6 +39,8 @@ O objetivo do projeto é criar um sistema para realizar sorteios de **amigo secr
 - **Sorteio Aleatório**: Realiza um sorteio justo entre os nomes válidos inseridos na lista.
   - **Nota**: Todos os participantes precisam estar no mesmo local, pois cada sorteio ocorre em tempo real.
 - **Controle de Duplicidade**: Após o sorteio, o nome do participante sorteado é removido da lista para evitar duplicação.
+- **Controle de sigilo**: O sorteio foi desenvolvido para que ao indicar o resultado, o próximo sorteio só poderá acontecer depois de alguns segundos para que o próximo usuário que for sortear, não descubra o amigo secreto do anterior.
+- **Limatações**: Atualmente, o projeto não possui um mecanismo em caso de um usuário sortear ele mesmo e ainda não possui um botão de reset. Dessa forma, é necessário atualizar a página para rodar novamente. 
 
 ---
 
